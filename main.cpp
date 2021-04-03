@@ -12,6 +12,16 @@ using namespace std;
 
 int main()
 {
+
+
+
+  upDate bday(10,10,2020);
+  upDate bday2(2450000);
+  cout << bday2.getMonth() << endl;
+  cout << bday2.getDay() << endl;
+  cout << bday2.getYear() << endl;
+
+  /*
 	upDate Bday;
 	upDate duedate(4,5,2021);
 	upDate today(duedate);
@@ -70,7 +80,5 @@ int main()
 
 	getchar();
 	return 0;
-}	
-
-	
-
+  */
+}
