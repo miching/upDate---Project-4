@@ -17,9 +17,72 @@ int main()
 
   upDate bday(10,10,2020);
   upDate bday2(2450000);
-  cout << bday2.getMonth() << endl;
-  cout << bday2.getDay() << endl;
-  cout << bday2.getYear() << endl;
+  cout << bday.getMonth() << "/" << bday.getDay() << "/" << bday.getYear() << endl;
+  cout << bday2.getMonth() << "/" << bday2.getDay() << "/" << bday2.getYear() << endl;
+
+  cout << "Copy: " << endl;
+  upDate copyDate = bday;
+  upDate copyDate2(bday);
+  cout << bday.getMonth() << "/" << bday.getDay() << "/" << bday.getYear() << endl;
+  cout << copyDate.getMonth() << "/" << copyDate.getDay() << "/" << copyDate.getYear() << endl;
+  cout << copyDate2.getMonth() << "/" << copyDate2.getDay() << "/" << copyDate2.getYear() << endl;
+
+  bday.setDate(2, 12, 2001);
+
+  cout << "Changed bDay " << endl;
+  cout << bday.getMonth() << "/" << bday.getDay() << "/" << bday.getYear() << endl;
+  cout << copyDate.getMonth() << "/" << copyDate.getDay() << "/" << copyDate.getYear() << endl;
+  cout << copyDate2.getMonth() << "/" << copyDate2.getDay() << "/" << copyDate2.getYear() << endl;
+  
+  cout << "Assignemnt: " << endl;
+  upDate assignDate(12,29,2019);
+  cout << assignDate.getMonth() << "/" << assignDate.getDay() << "/" << assignDate.getYear() << endl;
+  assignDate = bday;
+  cout << assignDate.getMonth() << "/" << assignDate.getDay() << "/" << assignDate.getYear() << endl;
+
+  cout << "Increase Days: " << endl;
+  upDate increaseDays(1,1,2010);
+  cout << increaseDays.getMonth() << "/" << increaseDays.getDay() << "/" << increaseDays.getYear() << endl;
+  increaseDays += 7;
+  cout << increaseDays.getMonth() << "/" << increaseDays.getDay() << "/" << increaseDays.getYear() << endl;
+
+  cout << "Decrease Days: " << endl;
+  upDate decreaseDays(3,10,2020);
+  cout << decreaseDays.getMonth() << "/" << decreaseDays.getDay() << "/" << decreaseDays.getYear() << endl;
+  decreaseDays -= 7;
+  cout << decreaseDays.getMonth() << "/" << decreaseDays.getDay() << "/" << decreaseDays.getYear() << endl;
+
+  cout << "Add Days to date: " << endl;
+  upDate addDays (8,8, 2016);
+  upDate added (6,6,2018);
+  cout << addDays.getMonth() << "/" << addDays.getDay() << "/" << addDays.getYear() << endl;
+  cout << added.getMonth() << "/" << added.getDay() << "/" << added.getYear() << endl;
+  addDays = added + 10;
+  cout << addDays.getMonth() << "/" << addDays.getDay() << "/" << addDays.getYear() << endl;
+  cout << added.getMonth() << "/" << added.getDay() << "/" << added.getYear() << endl;
+
+ //NEEDS TO BE FIXED OR added
+ /*
+  cout << "Non-Member Add Days to date: " << endl;
+  addDays = 10 + added;
+ */
+
+  cout << "Sub Days to date: " << endl;
+  upDate subDays (5,10, 2017);
+  upDate subbed (11,23,2015);
+  cout << subDays.getMonth() << "/" << subDays.getDay() << "/" << subDays.getYear() << endl;
+  cout << subbed.getMonth() << "/" << subbed.getDay() << "/" << subbed.getYear() << endl;
+  subDays = subbed - 10;
+  cout << subDays.getMonth() << "/" << subDays.getDay() << "/" << subDays.getYear() << endl;
+  cout << subbed.getMonth() << "/" << subbed.getDay() << "/" << subbed.getYear() << endl;
+
+  cout << "Days Between: " << endl;
+  upDate dayBetween (2,14,2021);
+  upDate dayBetween2 (2,20,2021);
+  upDate dayBetween3 (2,7,2021);
+  cout << "Between Feb 14 and Feb 20: " << dayBetween-dayBetween2 << endl;
+  cout << "Between Feb 14 and Feb 7: " << dayBetween-dayBetween3 << endl;
+
 
   /*
 	upDate Bday;

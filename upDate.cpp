@@ -35,6 +35,21 @@ void Julian2Greg(int JD, int & year, int & month, int & day)
 
 }
 
+  int upDate::count = 0;
+
+//Non-member Add operator
+upDate operator+(upDate d, int days)
+{
+
+  int JDdate = Greg2Julian(d.getYear(), d.getMonth(), d.getDay() );   // year, month, day
+  JDdate += days;
+  int month, day, year;
+  Julian2Greg(JDdate, year, month, day );
+  d.setDate(month, day, year);
+  return d;
+
+}
+
 upDate::upDate()
 {
 
@@ -86,6 +101,17 @@ upDate::upDate(int JD)
   ptr[0] = month;
   ptr[1] = day;
   ptr[2] = year;
+
+}
+
+//Copy Constructor
+upDate::upDate(const upDate &d)
+{
+
+  ptr = new int [3];
+  ptr[0] = d.ptr[0];
+  ptr[1] = d.ptr[1];
+  ptr[2] = d.ptr[2];
 
 }
 
@@ -209,6 +235,67 @@ string upDate::getMonthName()
 
 }
 
+//Assignment operator
+upDate upDate::operator=(const upDate &d)
+{
+
+  this -> ptr[0] = d.ptr[0];
+  this -> ptr[1] = d.ptr[1];
+  this -> ptr[2] = d.ptr[2];
+  return *this;
+  
+}
+
+upDate upDate::operator+=(int days)
+{
+
+  int JDdate = Greg2Julian(this -> ptr[2], this -> ptr[0], this -> ptr[1]);   // year, month, day
+  JDdate += days;
+  Julian2Greg(JDdate, this -> ptr[2], this -> ptr[0], this -> ptr[1]);
+  return *this;
+
+}
+
+upDate upDate::operator-=(int days)
+{
+
+  int JDdate = Greg2Julian(this -> ptr[2], this -> ptr[0], this -> ptr[1]);   // year, month, day
+  JDdate -= days;
+  Julian2Greg(JDdate, this -> ptr[2], this -> ptr[0], this -> ptr[1]);
+  return *this;
+
+}
+
+upDate upDate::operator+(int days)
+{
+
+  int JDdate = Greg2Julian(this -> ptr[2], this -> ptr[0], this -> ptr[1]);   // year, month, day
+  JDdate += days;
+  Julian2Greg(JDdate, this -> ptr[2], this -> ptr[0], this -> ptr[1]);
+  return *this;
+
+}
+
+upDate upDate::operator-(int days)
+{
+
+  int JDdate = Greg2Julian(this -> ptr[2], this -> ptr[0], this -> ptr[1]);   // year, month, day
+  JDdate -= days;
+  Julian2Greg(JDdate, this -> ptr[2], this -> ptr[0], this -> ptr[1]);
+  return *this;
+
+}
+
+int upDate::operator-(upDate d)
+{
+
+  int thisDate = Greg2Julian(ptr[2], ptr[0], ptr[1]);
+  int otherDate = Greg2Julian(d.getYear(), d.getMonth(), d.getDay());
+  otherDate -= thisDate;
+  return otherDate;
+
+}
+
 /*
 void upDate::increaseDate(int days)
 {
@@ -227,18 +314,6 @@ void upDate::decreaseDate(int days)
   Julian2Greg(JD, year, month, day);
 
 }
-
-int upDate::daysBetween(myDate d)
-{
-
-  int thisDate = Greg2Julian(year, month, day);
-  int otherDate = Greg2Julian(d.getYear(), d.getMonth(), d.getDay());
-  otherDate -= thisDate;
-  return otherDate;
-
-}
-
-
 
 int upDate::dayOfYear()
 {
