@@ -18,6 +18,7 @@ class upDate
     upDate(int);
     upDate(const upDate&);
     ~upDate();
+    friend upDate operator+(int days, upDate d);
     void setDate(int, int, int);
     int getMonth();
     int getDay();
@@ -29,7 +30,18 @@ class upDate
     upDate operator+(int);
     upDate operator-(int);
     int operator-(upDate);
+    static int GetDateCount();
+    friend ostream &operator<<(ostream &out, upDate);
+    upDate operator++(int);
+    upDate operator++();
+    upDate operator--(int);
+    upDate operator--();
+    int julian();
+    bool operator==(upDate);
+    bool operator<(upDate);
+    bool operator>(upDate);
     
+       
 
 /*
     void display();
@@ -39,7 +51,6 @@ class upDate
     string dayName();
     string toString();
     void randBirthday(upDate, upDate);
-    int JDdate();
   */
     
 };

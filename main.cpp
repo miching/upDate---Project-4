@@ -13,8 +13,6 @@ using namespace std;
 int main()
 {
 
-
-
   upDate bday(10,10,2020);
   upDate bday2(2450000);
   cout << bday.getMonth() << "/" << bday.getDay() << "/" << bday.getYear() << endl;
@@ -62,10 +60,11 @@ int main()
   cout << added.getMonth() << "/" << added.getDay() << "/" << added.getYear() << endl;
 
  //NEEDS TO BE FIXED OR added
- /*
+ 
   cout << "Non-Member Add Days to date: " << endl;
   addDays = 10 + added;
- */
+  cout << addDays << endl;
+ 
 
   cout << "Sub Days to date: " << endl;
   upDate subDays (5,10, 2017);
@@ -83,8 +82,85 @@ int main()
   cout << "Between Feb 14 and Feb 20: " << dayBetween-dayBetween2 << endl;
   cout << "Between Feb 14 and Feb 7: " << dayBetween-dayBetween3 << endl;
 
+  cout << "Number of upDates: " << upDate::GetDateCount() << endl;
+  {
+    upDate temp(1,1,2012);
+    upDate temp2(1,1,2021);
+    cout << "In Bracket: " << upDate::GetDateCount() << endl;
+  }
+  cout << "Out Bracket: " << upDate::GetDateCount() << endl;
 
-  /*
+  cout << "Print upDate objects: " << endl;
+  upDate print(9,9,2019);
+  cout << print.getMonth() << "/" << print.getDay() << "/" << print.getYear() << endl;
+  cout << print << endl;
+
+  cout << "Post Increment: Date++" << endl;
+  upDate postIncrement(7,20,2015);
+  cout << postIncrement << endl;
+  cout << postIncrement++ << endl;
+  cout << postIncrement << endl;
+  cout << postIncrement++ << endl;
+  cout << postIncrement << endl;
+
+  cout << "Pre Increment: ++Date" << endl;
+  upDate preIncrement(3,5,2018);
+  cout << preIncrement << endl;
+  cout << ++preIncrement << endl;
+
+  cout << "Post decrement: Date--" << endl;
+  upDate postDecrement(12,5,2018);
+  cout << postDecrement << endl;
+  cout << postDecrement++ << endl;
+  cout << postDecrement << endl;
+  cout << postDecrement++ << endl;
+  cout << postDecrement << endl;
+
+  cout << "Pre Increment: --Date" << endl;
+  upDate preDecrement(4,19,2012);
+  cout << preDecrement << endl;
+  cout << ++preDecrement << endl;
+
+  cout << "Julian Date: " << endl;
+  upDate jDate (2,12,2001);
+  cout << jDate.julian() << endl;
+/*
+  cout << "Equal Comparison: " << endl;
+  upDate equal(11,11,2011);
+  upDate equal2(11,11,2011);
+  upDate equal3(2,20,2020);
+  if(equal == equal2)
+  {
+
+    cout << "Equal" << endl;
+
+  }
+  else 
+  {
+
+    cout << "Not Equal" << endl;
+
+  }
+
+  if(equal == equal3)
+  {
+
+    cout << "Equal" << endl;
+
+  }
+  else 
+  {
+
+    cout << "Not Equal" << endl;
+
+  }
+
+  
+*/
+
+
+
+/*
 	upDate Bday;
 	upDate duedate(4,5,2021);
 	upDate today(duedate);
