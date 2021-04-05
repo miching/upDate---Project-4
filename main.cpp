@@ -13,6 +13,7 @@ using namespace std;
 int main()
 {
 
+/*
   upDate count, count2, count3;
   cout << "Number of upDates: " << upDate::GetDateCount() << endl;
   {
@@ -166,7 +167,9 @@ int main()
   cout << ((greaterThan3>greaterThan)?"greater than":"not greater than") << endl;
   cout << ((greaterThan3>greaterThan2)?"greater than":"not greater than") << endl;
 
-/*
+*/
+
+
 	upDate Bday;
 	upDate duedate(4,5,2021);
 	upDate today(duedate);
@@ -225,5 +228,5 @@ int main()
 
 	getchar();
 	return 0;
-  */
+  
 }

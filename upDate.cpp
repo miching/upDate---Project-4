@@ -272,30 +272,32 @@ upDate upDate::operator-=(int days)
 upDate upDate::operator+(int days)
 {
 
-  int JDdate = Greg2Julian(this -> ptr[2], this -> ptr[0], this -> ptr[1]);   // year, month, day
+  upDate temp = *this;
+  int JDdate = Greg2Julian(temp.ptr[2], temp.ptr[0], temp.ptr[1]);   // year, month, day
   JDdate += days;
-  Julian2Greg(JDdate, this -> ptr[2], this -> ptr[0], this -> ptr[1]);
-  return *this;
+  Julian2Greg(JDdate, temp.ptr[2], temp.ptr[0], temp.ptr[1]);
+  return temp;
 
 }
 
 upDate upDate::operator-(int days)
 {
 
-  int JDdate = Greg2Julian(this -> ptr[2], this -> ptr[0], this -> ptr[1]);   // year, month, day
+  upDate temp = *this;
+  int JDdate = Greg2Julian(temp.ptr[2], temp.ptr[0], temp.ptr[1]);   // year, month, day
   JDdate -= days;
-  Julian2Greg(JDdate, this -> ptr[2], this -> ptr[0], this -> ptr[1]);
-  return *this;
+  Julian2Greg(JDdate, temp.ptr[2], temp.ptr[0], temp.ptr[1]);
+  return temp;
 
 }
 
 int upDate::operator-(upDate d)
 {
 
-  int thisDate = Greg2Julian(ptr[2], ptr[0], ptr[1]);
+  int thisDate = Greg2Julian(this -> ptr[2], this -> ptr[0], this -> ptr[1]);
   int otherDate = Greg2Julian(d.getYear(), d.getMonth(), d.getDay() );
-  otherDate -= thisDate;
-  return otherDate;
+  thisDate -= otherDate;
+  return thisDate;
 
 }
 
