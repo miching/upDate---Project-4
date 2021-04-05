@@ -362,12 +362,12 @@ int upDate::julian()
   return Greg2Julian(ptr[2], ptr[0], ptr[1]);
  
 }
-/*
+
 bool upDate::operator==(upDate d)
 {
 
-  return (*this).julian() == d.julian();
-
+  return  (*this).julian() == d.julian();
+ 
 }
 
 bool upDate::operator<(upDate d)
@@ -383,7 +383,7 @@ bool upDate::operator>(upDate d)
   return (*this).julian() > d.julian();
 
 }
-*/
+
 
 /*
 void upDate::increaseDate(int days)

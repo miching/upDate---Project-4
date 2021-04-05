@@ -124,41 +124,27 @@ int main()
   cout << "Julian Date: " << endl;
   upDate jDate (2,12,2001);
   cout << jDate.julian() << endl;
-/*
+
   cout << "Equal Comparison: " << endl;
   upDate equal(11,11,2011);
   upDate equal2(11,11,2011);
   upDate equal3(2,20,2020);
-  if(equal == equal2)
-  {
+  cout << ((equal==equal2)?"equal to":"not equal to") << endl;
+  cout << ((equal==equal3)?"equal to":"not equal to") << endl;
 
-    cout << "Equal" << endl;
+  cout << "Less Than Comparison: " << endl;
+  upDate lessThan(9,25,2019);
+  upDate lessThan2(12,20,2008);
+  upDate lessThan3(2,20,2015);
+  cout << ((lessThan3<lessThan)?"less than":"not less than") << endl;
+  cout << ((lessThan3<lessThan2)?"less than":"not less than") << endl;
 
-  }
-  else 
-  {
-
-    cout << "Not Equal" << endl;
-
-  }
-
-  if(equal == equal3)
-  {
-
-    cout << "Equal" << endl;
-
-  }
-  else 
-  {
-
-    cout << "Not Equal" << endl;
-
-  }
-
-  
-*/
-
-
+  cout << "Greater Than Comparison: " << endl;
+  upDate greaterThan(9,25,2019);
+  upDate greaterThan2(12,20,2008);
+  upDate greaterThan3(2,20,2015);
+  cout << ((greaterThan3>greaterThan)?"greater than":"not greater than") << endl;
+  cout << ((greaterThan3>greaterThan2)?"greater than":"not greater than") << endl;
 
 /*
 	upDate Bday;
