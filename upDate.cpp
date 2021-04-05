@@ -120,7 +120,7 @@ upDate::upDate(const upDate &d)
 upDate::~upDate()
 {
 
-  //delete [] ptr;
+  delete [] ptr;
   count--;
 
 }
