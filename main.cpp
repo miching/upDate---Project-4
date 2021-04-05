@@ -27,54 +27,54 @@ int main()
 
   upDate bday(10,10,2020);
   upDate bday2(2450000);
-  cout << bday.getMonth() << "/" << bday.getDay() << "/" << bday.getYear() << endl;
-  cout << bday2.getMonth() << "/" << bday2.getDay() << "/" << bday2.getYear() << endl;
+  cout << bday << endl;
+  cout << bday2 << endl;
 
 
   cout << "Copy: " << endl;
   upDate copyDate = bday;
   upDate copyDate2(bday);
-  cout << bday.getMonth() << "/" << bday.getDay() << "/" << bday.getYear() << endl;
-  cout << copyDate.getMonth() << "/" << copyDate.getDay() << "/" << copyDate.getYear() << endl;
-  cout << copyDate2.getMonth() << "/" << copyDate2.getDay() << "/" << copyDate2.getYear() << endl;
+  cout << bday << endl;
+  cout << copyDate << endl;
+  cout << copyDate2 << endl;
 
   bday.setDate(2, 12, 2001);
 
   cout << "Changed bDay " << endl;
-  cout << bday.getMonth() << "/" << bday.getDay() << "/" << bday.getYear() << endl;
-  cout << copyDate.getMonth() << "/" << copyDate.getDay() << "/" << copyDate.getYear() << endl;
-  cout << copyDate2.getMonth() << "/" << copyDate2.getDay() << "/" << copyDate2.getYear() << endl;
+  cout << bday << endl;
+  cout << copyDate << endl;
+  cout << copyDate2 << endl;
   
 
-  cout << "Assignemnt: " << endl;
+  cout << "Assignment: " << endl;
   upDate assignDate(12,29,2019);
-  cout << assignDate.getMonth() << "/" << assignDate.getDay() << "/" << assignDate.getYear() << endl;
+  cout << assignDate << endl;
   assignDate = bday;
-  cout << assignDate.getMonth() << "/" << assignDate.getDay() << "/" << assignDate.getYear() << endl;
+  cout << assignDate << endl;
 
 
   cout << "Increase Days: " << endl;
-  upDate increaseDays(1,1,2010);
-  cout << increaseDays.getMonth() << "/" << increaseDays.getDay() << "/" << increaseDays.getYear() << endl;
+  upDate increaseDays(1,31,2010);
+  cout << increaseDays << endl;
   increaseDays += 7;
-  cout << increaseDays.getMonth() << "/" << increaseDays.getDay() << "/" << increaseDays.getYear() << endl;
+  cout << increaseDays << endl;
 
 
   cout << "Decrease Days: " << endl;
   upDate decreaseDays(3,10,2020);
-  cout << decreaseDays.getMonth() << "/" << decreaseDays.getDay() << "/" << decreaseDays.getYear() << endl;
+  cout << decreaseDays << endl;
   decreaseDays -= 7;
-  cout << decreaseDays.getMonth() << "/" << decreaseDays.getDay() << "/" << decreaseDays.getYear() << endl;
+  cout << decreaseDays << endl;
 
 
   cout << "Add Days to date: " << endl;
   upDate addDays (8,8, 2016);
   upDate added (6,6,2018);
-  cout << addDays.getMonth() << "/" << addDays.getDay() << "/" << addDays.getYear() << endl;
-  cout << added.getMonth() << "/" << added.getDay() << "/" << added.getYear() << endl;
+  cout << addDays << endl;
+  cout << added << endl;
   addDays = added + 10;
-  cout << addDays.getMonth() << "/" << addDays.getDay() << "/" << addDays.getYear() << endl;
-  cout << added.getMonth() << "/" << added.getDay() << "/" << added.getYear() << endl;
+  cout << addDays << endl;
+  cout << added << endl;
 
  
   cout << "Non-Member Add Days to date: " << endl;
@@ -88,11 +88,11 @@ int main()
   cout << "Sub Days to date: " << endl;
   upDate subDays (5,10, 2017);
   upDate subbed (11,23,2015);
-  cout << subDays.getMonth() << "/" << subDays.getDay() << "/" << subDays.getYear() << endl;
-  cout << subbed.getMonth() << "/" << subbed.getDay() << "/" << subbed.getYear() << endl;
+  cout << subDays << endl;
+  cout << subbed << endl;
   subDays = subbed - 10;
-  cout << subDays.getMonth() << "/" << subDays.getDay() << "/" << subDays.getYear() << endl;
-  cout << subbed.getMonth() << "/" << subbed.getDay() << "/" << subbed.getYear() << endl;
+  cout << subDays << endl;
+  cout << subbed << endl;
 
 
   cout << "Days Between: " << endl;
@@ -122,21 +122,25 @@ int main()
   upDate preIncrement(3,5,2018);
   cout << preIncrement << endl;
   cout << ++preIncrement << endl;
+  cout << preIncrement << endl;
+  cout << ++preIncrement << endl;
 
 
   cout << "Post decrement: Date--" << endl;
   upDate postDecrement(12,5,2018);
   cout << postDecrement << endl;
-  cout << postDecrement++ << endl;
+  cout << postDecrement-- << endl;
   cout << postDecrement << endl;
-  cout << postDecrement++ << endl;
+  cout << postDecrement-- << endl;
   cout << postDecrement << endl;
 
 
   cout << "Pre Increment: --Date" << endl;
   upDate preDecrement(4,19,2012);
   cout << preDecrement << endl;
-  cout << ++preDecrement << endl;
+  cout << --preDecrement << endl;
+  cout << preDecrement << endl;
+  cout << --preDecrement << endl;
 
 
   cout << "Julian Date: " << endl;
@@ -192,7 +196,7 @@ int main()
 	cout << "If you turn this assignment in on "<<dtemp<<" then is will be late.\n";
 	cout << "It is due on "<<--dtemp<<" so don't be late.\n";
 	cout << "One week from due date is "<<duedate+7<<endl;
-  cout << "One week from due date is "<<7+duedate<<endl;
+     cout << "One week from due date is "<<7+duedate<<endl;
 	cout << "One week earlier from due date is "<<duedate-7<<endl;
 
 	cout << "Your professor was born on "<<Bday<<" : ";

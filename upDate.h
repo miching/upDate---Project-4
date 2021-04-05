@@ -41,17 +41,5 @@ class upDate
     bool operator<(upDate);
     bool operator>(upDate);
     
-       
-
-/*
-    void display();
-    void increaseDate(int);
-    void decreaseDate(int);
-    int dayOfYear();
-    string dayName();
-    string toString();
-    void randBirthday(upDate, upDate);
-  */
-    
 };
 #endif

@@ -35,16 +35,17 @@ void Julian2Greg(int JD, int & year, int & month, int & day)
 
 }
 
-  int upDate::count = 0;
+int upDate::count = 0;
 
 //Non-member Add operator
 upDate operator+(int days, upDate d)
 {
 
-  int JDdate = Greg2Julian(d.getYear(), d.getMonth(), d.getDay() );   // year, month, day
+  upDate temp = d;
+  int JDdate = Greg2Julian(temp.ptr[2], temp.ptr[0], temp.ptr[1]);   // year, month, day
   JDdate += days;
-  Julian2Greg(JDdate, d.ptr[2], d.ptr[0], d.ptr[1] );
-  return d;
+  Julian2Greg(JDdate, temp.ptr[2], temp.ptr[0], temp.ptr[1]);
+  return temp;
 
 }
 
@@ -98,6 +99,7 @@ upDate::upDate(int JD)
   int year;
   Julian2Greg(JD, year, month, day);
 
+  ptr = new int [3];
   ptr[0] = month;
   ptr[1] = day;
   ptr[2] = year;
@@ -120,8 +122,9 @@ upDate::upDate(const upDate &d)
 upDate::~upDate()
 {
 
-  delete [] ptr;
   count--;
+  delete [] ptr;
+  
 
 }
 
@@ -385,187 +388,3 @@ bool upDate::operator>(upDate d)
   return (*this).julian() > d.julian();
 
 }
-
-
-/*
-void upDate::increaseDate(int days)
-{
-
-  int JD = Greg2Julian(year, month, day);
-
-  JD += days;
-  Julian2Greg(JD, year, month, day);
-
-}
-
-void upDate::decreaseDate(int days)
-{
-
-  int JD = Greg2Julian(year, month, day);
-  JD -= days;
-  Julian2Greg(JD, year, month, day);
-
-}
-
-int upDate::dayOfYear()
-{
-
- int JD = Greg2Julian(year, month, day);
- int startOfYear = Greg2Julian(year, 1, 1);
- JD = JD - startOfYear + 1;
- return JD;
-
-}
-
-string myDate::dayName()
-{
-
-  int JD = Greg2Julian(year, month, day);
-  string dayName;
-
-  if(JD % 7 == 0)
-  {
-
-    dayName = "Monday";
-
-  }
-  else if(JD % 7 == 1)
-  {
-
-    dayName = "Tuesday";
-
-  }
-  else if(JD % 7 == 2)
-  {
-
-    dayName = "Wednesday";
-
-  }
-  else if(JD % 7 == 3)
-  {
-
-    dayName = "Thursday";
-
-  }
-  else if(JD % 7 == 4)
-  {
-
-    dayName = "Friday";
-
-  }
-  else if(JD % 7 == 5)
-  {
-
-    dayName = "Saturday";
-
-  }
-  else if (JD % 7 == 6)
-  {
-
-    dayName = "Sunday";
-    
-  }
-  
-   return dayName;
-
-}
-
-string myDate::toString()
-{
-
-  string date;
-
-  if(month == 1)
-  {
-
-    date = "January";
-
-  }
-  else if(month == 2)
-  {
-
-    date = "February";
-
-  }
-  else if(month == 3)
-  {
-
-    date = "March";
-
-  }
-  else if(month == 4)
-  {
-
-    date = "April";
-
-  }
-  else if(month == 5)
-  {
-
-    date = "May";
-
-  }
-  else if(month == 6)
-  {
-
-    date = "June";
-
-  }
-  else if(month == 7)
-  {
-
-    date = "July";
-
-  }
-  else if(month == 8)
-  {
-
-    date = "August";
-
-  }
-  else if(month == 9)
-  {
-
-    date = "September";
-
-  }
-  else if(month == 10)
-  {
-
-    date = "October";
-
-  }
-  else if(month == 11)
-  {
-
-    date = "November";
-
-  }
-  else if(month == 12)
-  {
-
-    date = "December";
-
-  }
-  
-  date = date + " " + to_string(day) + ", " + to_string(year);
-
-  return date;
-}
-
- void myDate::randBirthday(myDate oldestDate, myDate youngestDate)
- {
-
-   int old = Greg2Julian(oldestDate.year, oldestDate.month, oldestDate.day);
-   int young = Greg2Julian(youngestDate.year, youngestDate.month, youngestDate.day);
-  
-   int range = young - old + 1;
-
-   //srand(time(NULL));
-   int birthday = rand() % range + old;
-
-   Julian2Greg(birthday, year, month, day);
-
- }
- 
- */
